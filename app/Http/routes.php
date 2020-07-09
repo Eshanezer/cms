@@ -60,14 +60,33 @@ Route::any('foo', function () {
 
 
 
-/*  CONTROLLERS */
+/* USING  CONTROLLERS */
+
+/*Controller eke thiyena method mehema call karannath puluwan*/
 
 /*Route::get('/post','PostContoller@index');*/
 
 
-Route::resource('posts','PostContoller');
+/*Resource method okkoma mehema call karanna puluwan*/
+/*Route::get('/posts','PostContoller@create');*/
+
+/*Data pasrsing to controller*/
+/*Route::get('/posts/{id}','PostContoller@index');*/
+
+/*Resources with Controller*/
+Route::resource('/posts','PostContoller');
 
 
+/*VIEWS & Custome Method*/
+
+/*cutome method*/
+Route::get('/contact','PostContoller@contact');
+
+/*passing single data to view*/
+Route::get('post/{id}','PostContoller@show_post');
+
+/*passing single data to view*/
+Route::get('post/{id}/{name}/{password}','PostContoller@show_post');
 
 
 /*

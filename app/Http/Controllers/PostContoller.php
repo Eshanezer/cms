@@ -15,7 +15,6 @@ class PostContoller extends Controller
      */
     public function index()
     {
-        return "Its Working !";
     }
 
     /**
@@ -25,7 +24,7 @@ class PostContoller extends Controller
      */
     public function create()
     {
-        //
+        return "Its Working - Create !";
     }
 
     /**
@@ -47,7 +46,7 @@ class PostContoller extends Controller
      */
     public function show($id)
     {
-        //
+        return "Show id ".$id;
     }
 
     /**
@@ -82,5 +81,30 @@ class PostContoller extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    /*Custome Method*/
+
+    public function contact(){
+        $people=['Edwin','Eshan','Dilmina','Peter'];
+        return view('contact',compact('people'));
+    }
+
+    /*Data parsing to view*/
+
+    /*Single data parssing */
+    /*public function show_post($id){
+        return view('post')->with('id',$id);
+    }*/
+
+
+    /*multiple parameter parsing*/
+
+    public function show_post($id,$name,$password){
+
+        /*Parsing multiple parameters*/
+        return view('post',compact('id','name','password'));
     }
 }
