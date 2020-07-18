@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             // for polymorphic relation
-            $table->integer('user_main_id')->unsigned();
+           // $table->integer('user_main_id')->unsigned();
             $table->string('title');
             $table->string('content')->default("NIL");
             $table->timestamps();

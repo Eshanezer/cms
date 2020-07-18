@@ -16,10 +16,12 @@
  * SPRING wala wagema thamai - user/new - new user kenek hadana page ekata yanna
 */
 
-use const App\Http\Controllers\PostContoller;
-use App\Post;
-use App\User;
 use App\Country;
+use App\Photo;
+use App\Tag;
+use App\User;
+use App\Post;
+use const App\Http\Controllers\PostContoller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -241,11 +243,7 @@ Route::get('post/{id}/{name}/{password}', 'PostContoller@show_post');
 });*/
 
 
-
-
 /* --------------  SOFT DELETE MODEL ---------------*/
-
-
 
 
 /*Route::get('/soft-delete', function () {
@@ -275,8 +273,6 @@ Route::get('post/{id}/{name}/{password}', 'PostContoller@show_post');
 /*Route::get('/force-delete', function () {
     Post::withTrashed()->where('id',1)->forceDelete();
 });*/
-
-
 
 
 /*-----------------      Eloquent Relationship --------------------------*/
@@ -325,22 +321,60 @@ Route::get('post/{id}/{name}/{password}', 'PostContoller@show_post');
 /* Has many through relation */
 /* Related: country model & add_country_id_column migration*/
 
-Route::get('/user/country', function () {
-    $county =Country::find(1);
+/*Route::get('/user/country', function () {
+    $county = Country::find(1);
 
-    foreach ($county->posts as $post){
+    foreach ($county->posts as $post) {
         return $post->title;
     }
-});
+});*/
 
 /*Polymorphic relation  */
+/*remove user_id in post*/
+/*Route::get('/poly/user', function () {
+    $user = User::find(1);
+    foreach ($user->photo as $photo) {
+        return $photo->path;
+    }
+});*/
 
-Route::get('/poly', function () {
-    $user=User::find(1);
-    foreach ($user->photos as $photo){
-    return $photo;
+/*Route::get('/poly/post', function () {
+    $post = Post::find(1);
+    foreach ($post->photo as $photo) {
+      //  return $photo->path;
+
+        echo $photo->path."<br>";
+    }
+});*/
+
+/*inverse*/
+
+/*Route::get('/photo/{id}', function ($id) {
+    $photo =Photo::findOrFail($id);
+
+    return $photo->imageable;
+});*/
+
+
+/*Polymorphic relation  Many to Many */
+
+/*Route::get('/Post/tag', function () {
+    $post =Post::find(1);
+
+    foreach ($post->tags as $tag) {
+        return $tag->name;
     }
 });
+
+Route::get('/tag/post', function () {
+    $tag =Tag::find(2);
+
+    foreach ($tag->post as $post) {
+        return $post->title;
+    }
+});*/
+
+/*Form Validation */
 
 /*
 |--------------------------------------------------------------------------

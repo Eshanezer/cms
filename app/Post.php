@@ -27,4 +27,12 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\User','user_main_id');
     }
+
+    public function photo(){
+        return $this->morphMany('App\Photo','imageable');
+    }
+
+    public function tags(){
+        return $this->morphToMany('App\Tag','taggable');
+    }
 }
