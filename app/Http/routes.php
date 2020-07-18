@@ -374,7 +374,7 @@ Route::get('/tag/post', function () {
     }
 });*/
 
-/*Form Validation */
+/* CRUD APPLICATION */
 
 /*
 |--------------------------------------------------------------------------
